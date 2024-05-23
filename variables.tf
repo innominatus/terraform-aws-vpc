@@ -256,6 +256,13 @@ variable "public_route_table_tags" {
   default     = {}
 }
 
+variable "create_public_internet_gateway_route" {
+  description = "Controls if an internet gateway route for public access should be created"
+  type        = bool
+  default     = true
+}
+
+
 ################################################################################
 # Public Network ACLs
 ################################################################################
@@ -1170,12 +1177,6 @@ variable "create_egress_only_igw" {
   default     = true
 }
 
-variable "create_public_internet_gateway_route" {
-  description = "Controls if the igw is attached as default gateway on public subnets"
-  type        = bool
-  default     = true
-}
-
 variable "igw_tags" {
   description = "Additional tags for the internet gateway"
   type        = map(string)
@@ -1241,7 +1242,7 @@ variable "nat_eip_tags" {
 }
 
 variable "create_private_nat_gateway_route" {
-  description = "Controls if the nat gateway is attached as default gateway on private subnets"
+  description = "Controls if a nat gateway route for private access should be created"
   type        = bool
   default     = true
 }
