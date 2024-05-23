@@ -1170,6 +1170,12 @@ variable "create_egress_only_igw" {
   default     = true
 }
 
+variable "attach_igw_public_subnets" {
+  description = "Controls if the igw is attached as default gateway on public subnets"
+  type        = bool
+  default     = true
+}
+
 variable "igw_tags" {
   description = "Additional tags for the internet gateway"
   type        = map(string)
@@ -1232,6 +1238,12 @@ variable "nat_eip_tags" {
   description = "Additional tags for the NAT EIP"
   type        = map(string)
   default     = {}
+}
+
+variable "attach_nat_private_subnets" {
+  description = "Controls if the nat gateway is attached as default gateway on private subnets"
+  type        = bool
+  default     = true
 }
 
 ################################################################################
